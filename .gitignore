@@ -1,0 +1,31 @@
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Python cache and byte-compiled files
+__pycache__/
+*.py[cod]
+*.class
+*.pyc
+
+# Jupyter Checkpoints
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# External and internal dataset directories (directory-specific exclusion instead of global *.csv)
+ml-32m/
+data/
+*.zip
+*.tar.gz
+
+# Temporary and build artifacts
+*.log
+.coverage
+htmlcov/
+.pytest_cache/

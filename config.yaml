@@ -1,0 +1,9 @@
+﻿dataset:
+  directory: "C:/ml-32m"
+  ratings: "ratings.csv"
+  movies: "movies.csv"
+  tags: "tags.csv"
+  links: "links.csv"
+
+project:
+  random_seed: 42
