@@ -1,4 +1,4 @@
-﻿dataset:
+dataset:
   directory: "C:/ml-32m"
   ratings: "ratings.csv"
   movies: "movies.csv"
@@ -7,3 +7,40 @@
 
 project:
   random_seed: 42
+
+evaluation:
+  temporal_split:
+    strategy: "Alternative 1"
+    cutoff_utc: "2020-01-01 00:00:00 UTC"
+    cutoff_timestamp: 1577836800
+  filtering:
+    k_core: 0  # No filtering; original MovieLens 32M interaction data preserved
+  evaluable_users:
+    definition: "Users with at least one training interaction and one test interaction"
+    min_train_interactions: 1
+    min_test_interactions: 1
+    count: 7817
+  candidate_universe:
+    definition: "rated_movies"
+    description: "Movies with at least one rating in the complete MovieLens 32M dataset"
+    total_items: 84432
+    exclude_seen_items: true  # Per-user exclusion of items rated in training: C(u) = I_rated \ I_train(u)
+  models:
+    - name: "Adjusted Popularity Baseline"
+      type: "baseline"
+    - name: "Content-Based TF-IDF + Cosine Similarity"
+      type: "content_based"
+    - name: "Latent Factor Model (SVD)"
+      type: "matrix_factorization"
+  reporting:
+    metrics:
+      - "Precision@10"
+      - "Recall@10"
+      - "NDCG@10"
+      - "MAP@10"
+      - "MRR"
+      - "Coverage"
+    cold_item_handling:
+      report_item_coverage: true
+      report_cold_item_limitations: true
+      unseen_training_items_test_interactions_pct: 17.31
