@@ -22,10 +22,7 @@ C:\OneriAlgoritmalariProjesi
 
 ## Dataset
 
-This project uses the official **MovieLens 32M** dataset, maintained outside the repository at:
-```
-C:\ml-32m
-```
+This project uses the official **MovieLens 32M** dataset.
 The dataset directory contains:
 - `ratings.csv` (32,000,204 ratings)
 - `movies.csv` (87,585 movies)
